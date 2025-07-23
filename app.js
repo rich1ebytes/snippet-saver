@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
@@ -34,8 +36,8 @@ app.get("/logout", (req, res) => {
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
  //Server starts after DB connection
-    app.listen(3000, () => {
-      console.log("Server: http://localhost:3000");
-    });
+   app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
   })
 
