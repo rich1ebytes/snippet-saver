@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      
+  /* Hide number input arrows in all browsers */
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>
+
+
+    <title>Snippet Saver</title>
+</head>
+<body>
+ <div class="min-h-screen bg-black text-green-400 flex items-center justify-center px-4">
+  <form action="/signup" method="POST" class="flex flex-col gap-4 w-full max-w-sm">
+    <input type="text" name="name" placeholder="Name"  required
+      class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none "/>
+
+    <input type="email" name="email" placeholder="Email ID"  required
+      class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none "/>
+
+
+    <input type="password" name="password" placeholder="Password" required
+      class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none "/>
+
+    <input type="number" name="luckynumber" placeholder="Lucky Number" required
+      class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none "/>
+
+    <button type="submit"
+      class="bg-green-500 mb-1/2 text-black font-semibold py-2 rounded hover:bg-green-600 transition">
+      Create
+    </button>
+    
+    
+   <a href="/login"
+  class="block w-full bg-green-500 text-black text-center font-semibold py-2 rounded hover:bg-green-600 transition mb-5">
+  Login
+   </a>
+   
+  </form>
+</div>
+
+
+
+</body>
+</html>
