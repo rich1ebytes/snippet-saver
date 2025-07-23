@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");

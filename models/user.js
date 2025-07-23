@@ -4,13 +4,12 @@ const userSchema = mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  luckynumber: Number,
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Post" // Match the model name exactly
+      ref: "Post"
     }
   ]
 });
 
-module.exports = mongoose.model("User", userSchema); // Use capital "User"
+module.exports = mongoose.model("User", userSchema); 
