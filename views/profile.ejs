@@ -5,7 +5,7 @@
   <title>Snippet Saver</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white p-6 font-mono">
+<body class="bg-black text-white font-mono">
 
   <div class="absolute top-4 right-4 flex gap-2">
     <a 
@@ -18,76 +18,56 @@
     </a>
   </div>
 
-  <!-- Main Wrapper -->
-  <div class="min-h-screen flex flex-col items-center px-4 text-green-400">
+  <!-- Main Container -->
+  <div class="min-h-screen px-4 sm:px-6 pt-16 flex flex-col items-center justify-start text-green-400">
 
-    <div class="mt-20 mb-4">
-      <h3 class="text-2xl font-bold mb-6">
-        Hello, <%= user.name %> 👾
-      </h3>
-    </div>
+    <h3 class="text-xl sm:text-2xl font-bold text-center mb-6">
+      Hello, <%= user.name %> 👾
+    </h3>
 
-    <!--New Snippet Form -->
-    <form 
-      action="/post" method="POST"
-      class="w-full max-w-2xl flex flex-col items-center">
-      
+    <!-- New Snippet -->
+    <form action="/post" method="POST" class="w-full max-w-xl flex flex-col items-center px-2">
       <textarea
         name="content"
-        required
-        placeholder="Save your code snippets here..." 
-        class="w-full bg-black border border-green-500 resize-none text-green-300
-               placeholder:text-gray-400 placeholder:italic px-4 py-3 rounded 
-               outline-none mb-5 caret-white"
+        placeholder="Save your code snippets here..."
         rows="6"
+        required
+        class="w-full bg-black border border-green-500 text-green-300 placeholder:text-gray-400 placeholder:italic px-4 py-3 rounded resize-none outline-none mb-5 caret-white text-sm sm:text-base"
       ></textarea>
 
-      <input 
+      <input
         type="submit"
         value="Save"
         class="bg-transparent border border-yellow-500 text-yellow-400 
                hover:bg-yellow-500 hover:text-black 
                text-sm font-bold py-2 px-4 rounded-md 
-               transition duration-200 cursor-pointer">
+               transition duration-200 cursor-pointer" />
     </form>
 
-    <!-- Snippets Display -->
-    <div class="w-full max-w-2xl mt-12">
-      <h3 class="text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">
+    <!-- Snippet Cards -->
+    <div class="w-full max-w-xl mt-10 px-2">
+      <h3 class="text-lg sm:text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2 text-center">
         Your Saved Snippets
       </h3>
-
-      <!-- Snippet Cards -->
       <div class="posts-container mt-5">
         <% user.posts.reverse().forEach((post) => { %>
-          <div class="bg-gray-900 border border-purple-500 rounded-lg p-4 mb-4">
-            <h4 class="text-purple-400 font-bold mb-2"><%= user.name %></h4>
-            <p class="text-green-300 whitespace-pre-wrap"><%= post.content %></p>
+          <div class="bg-gray-900 border border-purple-500 rounded-lg p-3 sm:p-4 mb-4">
+            <h4 class="text-purple-400 font-bold mb-2 text-sm sm:text-base"><%= user.name %></h4>
+            <p class="text-green-300 whitespace-pre-wrap text-sm sm:text-base"><%= post.content %></p>
             <div class="btns flex gap-4 mt-2">
-              
-              <!-- Delete Button -->
-              <form action="/post/<%= post._id %>?_method=DELETE" method="POST" style="display:inline;">
-                <button type="submit" 
-                        class="text-red-400 hover:underline bg-transparent border-none cursor-pointer">
-                  Delete
-                </button>
+
+              <form action="/post/<%= post._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="text-red-400 hover:underline text-sm">Delete</button>
               </form>
 
-              <!-- Edit Button -->
-              <form action="/post/<%= post._id %>/edit" method="GET" style="display:inline;">
-                <button type="submit" 
-                        class="text-yellow-400 hover:underline bg-transparent border-none cursor-pointer">
-                  Edit
-                </button>
+              <form action="/post/<%= post._id %>/edit" method="GET">
+                <button type="submit" class="text-yellow-400 hover:underline text-sm">Edit</button>
               </form>
-
             </div>
           </div>
         <% }) %>
       </div>
     </div>
-
   </div>
-
 </body>
 </html>
