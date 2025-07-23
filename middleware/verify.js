@@ -6,7 +6,8 @@ function isLoggedIn(req, res, next) {
   if (!token) return res.redirect("login");
 
   try {
-    const data = jwt.verify(token, "cooper");
+    const data = jwt.verify(token, process.env.JWT_SECRET
+    );
     req.user = data;
     next();
   } catch (err) {
