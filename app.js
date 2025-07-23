@@ -2,10 +2,8 @@ const express = require("express");
 const app = express();
 
 const cookieParser = require("cookie-parser");
-
 const mongoose = require("mongoose");
-
-
+const methodOverride = require("method-override");
 
 require("dotenv").config();
 
@@ -13,6 +11,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(methodOverride("_method")); 
 
 app.get("/", (req, res) => {
   res.render("index");

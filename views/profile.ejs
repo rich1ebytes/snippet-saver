@@ -25,7 +25,7 @@
 
     <!-- Greeting -->
     <div class="mt-20 mb-4">
-      <h3 class="text-2xl font-semibold mb-6">
+      <h3 class="text-2xl font-bold mb-6">
         Hello, <%= user.name %> 👾
       </h3>
     </div>
@@ -67,8 +67,12 @@
             <h4 class="text-purple-400 font-bold mb-2"><%= user.name %></h4>
             <p class="text-green-300 whitespace-pre-wrap"><%= post.content %></p>
             <div class="btns flex gap-4 mt-2">
-              <a href="#" class="text-red-400 hover:underline">Delete</a>
-              <a href="#" class="text-blue-400 hover:underline">Edit</a>
+              <form action="/post/<%= post._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit" class="text-red-400 hover:underline bg-transparent border-none cursor-pointer">Delete</button>
+              </form>
+               <form action="/post/<%= post._id %>/edit" method="GET" style="display:inline;">
+                <button type="submit" class="text-red-400 hover:underline bg-transparent border-none cursor-pointer">Edit</button>
+              </form>
             </div>
           </div>
         <% }) %>
