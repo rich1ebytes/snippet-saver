@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="/logo.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Edit Snippet</title>
+  <title>Snipzy Edit</title>
+
 </head>
-<body class="bg-black text-green-400 min-h-screen flex items-center justify-center px-4">
+<body class="bg-blue-950 text-green-400 min-h-screen flex items-center justify-center px-4">
 
   <form action="/post/<%= post._id %>?_method=PUT" method="POST"
     class="w-full max-w-md bg-black p-6 rounded-lg border border-green-500 shadow-md">

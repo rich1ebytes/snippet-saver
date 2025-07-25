@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(methodOverride("_method")); 
+app.use(express.static('public'));
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -36,7 +37,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => {
  //Server starts after DB connection
    app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`server on http://localhost:${PORT}`);
 });
   })
 
