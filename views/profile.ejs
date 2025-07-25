@@ -6,60 +6,84 @@
   <title>Snipzy Profile</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white font-mono">
+<body class="bg-black text-white font-sanserif">
 
-  <div class="absolute top-4 right-4 flex gap-2">
+  <!-- Logout Button-->
+  <div class="absolute top-10 right-10 flex gap-2">
     <a 
       href="/logout"
       class="bg-transparent border border-red-500 text-red-400 
-             hover:bg-red-600 hover:text-white 
+             hover:bg-red-600 hover:text-white cursor-pointer
              text-sm font-bold py-2 px-4 rounded-md 
              transition duration-200">
-      Logout
+      LOGOUT
     </a>
   </div>
-
+  <div class="absolute top-10 left-10 flex gap-2">
+    <img
+      src="/sniplogo.png"
+      class="bg-transparent border border-none 
+             hover:white cursor-pointer rounded-md 
+             w-30 h-10 object-contain
+             transition duration-200"/>
+  </div>
   <!-- Main Container -->
-  <div class="min-h-screen px-4 sm:px-6 pt-16 flex flex-col items-center justify-start text-green-400">
+  <div class="min-h-screen flex flex-col items-center justify-start text-green-400">
 
-    <h3 class="text-xl sm:text-2xl font-bold text-center mb-6">
-      Hello, <%= user.name %> 👾
+
+    <h3 class="text-10xl sm:text-5xl font-bold text-center mb-6" style="margin-top:150px;">
+      Hey, <%= user.name %> 👾
     </h3>
 
-    <!-- New Snippet -->
-    <form action="/post" method="POST" class="w-full max-w-xl flex flex-col items-center px-2">
+    <!-- New Snippet Form -->
+    <form action="/post" method="POST" class="w-3/4 sm:w-full max-w-xl flex flex-col items-center px-2">
+
+
+      <input
+        type="text"
+        name="tag"
+        placeholder="Snippet Nickname Here"
+        required
+        class="w-full bg-black border border-green-500 text-green-300 placeholder:text-gray-400
+               placeholder:italic px-4 py-3 rounded outline-none mb-5 caret-white text-sm sm:text-base" />
+
+
       <textarea
         name="content"
         placeholder="Save your code snippets here..."
         rows="6"
         required
-        class="w-full bg-black border border-green-500 text-green-300 placeholder:text-gray-400 placeholder:italic px-4 py-3 rounded resize-none outline-none mb-5 caret-white text-sm sm:text-base"
-      ></textarea>
+        class="w-full bg-black border border-green-500 text-green-300 placeholder:text-gray-400
+               placeholder:italic px-4 py-3 rounded resize-none outline-none mb-5 caret-white text-sm sm:text-base">
+              </textarea>
 
       <input
         type="submit"
-        value="Save"
+        value="SAVE"
         class="bg-transparent border border-yellow-500 text-yellow-400 
-               hover:bg-yellow-500 hover:text-black 
+               hover:bg-yellow-500 hover:text-white 
                text-sm font-bold py-2 px-4 rounded-md 
                transition duration-200 cursor-pointer" />
     </form>
 
-    <!-- Snippet Cards -->
+    <!-- Snippet List -->
     <div class="w-full max-w-xl mt-10 px-2">
       <h3 class="text-lg sm:text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2 text-center">
         Your Saved Snippets
       </h3>
+
       <div class="posts-container mt-5">
         <% user.posts.reverse().forEach((post) => { %>
-          <div class="bg-gray-900 border border-purple-500 rounded-lg p-3 sm:p-4 mb-4">
-            <h4 class="text-purple-400 font-bold mb-2 text-sm sm:text-base"><%= user.name %></h4>
+          <div class="bg-gray-900 border text-left border-purple-500 rounded-lg p-3 sm:p-4 mb-4">
+            <h4 class="text-purple-400 font-bold mb-2 text-sm sm:text-base"><%= post.tag %></h4>
             <p class="text-green-300 whitespace-pre-wrap text-sm sm:text-base"><%= post.content %></p>
             <div class="btns flex gap-4 mt-2">
+
 
               <form action="/post/<%= post._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="text-red-400 hover:underline text-sm">Delete</button>
               </form>
+
 
               <form action="/post/<%= post._id %>/edit" method="GET">
                 <button type="submit" class="text-yellow-400 hover:underline text-sm">Edit</button>
@@ -70,5 +94,6 @@
       </div>
     </div>
   </div>
+
 </body>
 </html>

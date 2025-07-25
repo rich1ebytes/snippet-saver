@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/user"); 
+const User = require("../models/user");
 
 router.post("/signup", async (req, res) => {
   const { name, email, password, luckynumber } = req.body;
@@ -24,7 +24,10 @@ router.post("/signup", async (req, res) => {
         luckynumber,
       });
 
-      const token = jwt.sign({ email: newUser.email, userid: newUser._id }, process.env.JWT_SECRET);
+      const token = jwt.sign(
+        { email: newUser.email, userid: newUser._id },
+        process.env.JWT_SECRET
+      );
       res.cookie("token", token);
       res.redirect("/profile");
     });

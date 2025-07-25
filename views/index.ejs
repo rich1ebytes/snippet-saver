@@ -15,33 +15,32 @@
   </style>
   <title>Snipzy</title>
 </head>
-<body class="bg-black text-green-400">
+<body class="bg-black text-lime-300 min-h-screen flex items-center justify-center">
 
-  <!-- Full height container with flex centering -->
-  <div class="min-h-screen flex items-center justify-center px-4">
+  <div class="flex flex-col items-center justify-center w-full px-4">
+  <img src="/sniplogo.png" alt="logo"/>
 
-    <!-- Form container with max-width and responsive width -->
-    <form action="/signup" method="POST" class="w-full max-w-md flex flex-col gap-4 bg-black p-6 rounded-md border border-green-500">
+    <form action="/signup" method="POST"
+      class="w-full max-w-lg flex flex-col gap-4 bg-black p-6 rounded-md border border-green-500">
 
-      <!-- Name Input -->
       <input type="text" name="name" placeholder="Name" required
-        class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none" />
+        class="bg-black border border-green-400 text-green-400 placeholder-white px-4 py-2 rounded outline-none" />
 
-      <!-- Email Input -->
+      
       <input type="email" name="email" placeholder="Email ID" required
-        class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none" />
+        class="bg-black border border-green-400 text-green-400 placeholder-white px-4 py-2 rounded outline-none" />
 
-      <!-- Password Input -->
+      
       <input type="password" name="password" placeholder="Password" required
-        class="bg-black border border-green-500 text-green-300 placeholder-white px-4 py-2 rounded outline-none" />
+        class="bg-black border border-green-400 text-green-400 placeholder-white px-4 py-2 rounded outline-none" />
 
-      <!-- Submit Button -->
+     
       <button type="submit"
         class="bg-green-500 text-black font-semibold py-2 rounded hover:bg-green-600 transition">
         Create
       </button>
 
-      <!-- Login Link Button -->
+      <!-- Login link -->
       <a href="/login"
         class="block w-full bg-green-500 text-black text-center font-semibold py-2 rounded hover:bg-green-600 transition">
         Login

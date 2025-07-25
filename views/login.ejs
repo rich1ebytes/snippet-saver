@@ -8,10 +8,13 @@
   <title>Snipzy Login</title>
 </head>
 <body class="bg-black text-green-400">
-  <div class="min-h-screen flex items-center justify-center px-4">
+  <div class="min-h-screen flex flex-col items-center justify-center px-4">
 
     <!--form container -->
+  <img src="/sniplogo.png" alt="logo"/>
+
     <form action="/login" method="POST" class="w-full max-w-sm flex flex-col gap-4 bg-black p-6 rounded-md border border-green-500">
+
 
 
       <input type="email" name="email" placeholder="Email ID" required
@@ -26,6 +29,12 @@
         class="bg-green-500 text-black font-semibold py-2 rounded hover:bg-green-600 transition">
         Login
       </button>
+      <div>
+      <a href="/"
+        class="block w-full bg-green-500 text-black text-center font-semibold py-2 rounded hover:bg-green-600 transition">
+        Go Back To Create?
+      </a>
+      </div>
 
     </form>
   </div>
